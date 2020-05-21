@@ -5,8 +5,10 @@ The input directory for random forest is Training_WFDB which can be downloaded h
 
 
 To run it on Terminal write: python3 randomforest.py Training_WFDB 
+This program calls get_12ECG_features.py.
 Second, run the driver.py which generates the scores and probability for each cardiac disease.
 The input directory is again Training_WFDB, and the output name should be specified as well
 
 
-To run it on Terminal write: python3 driver.py Training_WFDB output_directory """
+To run it on Terminal write: python3 driver.py Training_WFDB output_directory.
+This program calls get_12ECG_features.py and run_12ECG_classifier."""
