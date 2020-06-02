@@ -1,6 +1,6 @@
 # ECG_signal_analysis
 
-""" First run the randomforest.py which generates the model as finalized_model.sav.
+""" First run the randomforest.py/rf2.py/neigh.py which generates the model as finalized_model.sav.
 The input directory for random forest is Training_WFDB which can be downloaded here:
 https://physionetchallenges.github.io/2020/
 
