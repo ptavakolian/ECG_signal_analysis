@@ -147,6 +147,9 @@ if __name__ == '__main__':
     df1
     print('Done with forming DataFrame for Random Forest')
 
+    """"
+    #rbd_Debug_begin 
+    
     # Load model.
     print('Loading 12ECG model for RF 2...')
     model = load_12ECG_model(model2)
@@ -159,11 +162,23 @@ if __name__ == '__main__':
         print('    {}/{}...'.format(i + 1, num_files))
         tmp_input_file = os.path.join(input_directory, f)
         data, header_data = load_challenge_data(tmp_input_file)
-        current_label, current_score = run_12ECG_classifier(data, header_data, classes, model2)
+        current_label, current_score = run_12ECG_classifier(data, header_data, classes, model)
         # Save results.
 
         save_challenge_predictions(output_directory2, f, current_score, current_label, classes)
+    
+    #rbd_Debug_end
+    """
 
     print('Done Random Forest 2.')
     # dummy comment..
+    dummy_debug = 0
+
+    #rbd_Debug
+    print('Debug: Start reading CSV files of classifier')
+    df2 = get_prob_distr(output_directory2, parse_files)
+    print('Debug: Done Reading CSV files of classifier')
+    df2
+    print('Done with forming DataFrame for Random Forest')
+
     dummy_debug = 0

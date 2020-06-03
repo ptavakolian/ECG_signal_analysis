@@ -13,7 +13,7 @@ def run_12ECG_classifier(data,header_data,classes,model):
     # Use your classifier here to obtain a label and score for each class. 
     features=np.asarray(get_12ECG_features(data,header_data))
     feats_reshape = features.reshape(1,-1)
-    print(np.shape( feats_reshape(1,1) ))
+    #print(np.shape( feats_reshape(1,1) ))
     label = model.predict(feats_reshape)
     score = model.predict_proba(feats_reshape)
     score=np.squeeze(score)
@@ -29,7 +29,7 @@ def run_12ECG_classifier(data,header_data,classes,model):
 
 def load_12ECG_model(filename):
     # load the model from disk 
-    #filename='finalized_model.sav'
+    filename='finalized_model2.sav'
     loaded_model = joblib.load(filename)
 
     return loaded_model
