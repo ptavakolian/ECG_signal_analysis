@@ -6,14 +6,14 @@ import sys
 from scipy.io import loadmat
 import pandas as pd
 import joblib
+import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import  classification_report
 from get_12ECG_features import get_12ECG_features
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
-
 # input_directory='Desktop/ECG/ECG2/Training_WFDB' 
-input_directory = sys.argv[1]
+input_directory = './dataset'
 
 def get_classes_and_header(filename):
         classes = []
@@ -52,8 +52,12 @@ for i in range(1,len(classes.iloc[0])):  # for all the other columns in classes
 
 X_train, X_test, y_train, y_test=train_test_split(features_ECG, classes_dummy, test_size=0.01, random_state=42)
 
-model = RandomForestClassifier(n_estimators=650, random_state=0)
-model.fit(X_train, y_train)
-filename = 'finalized_model2.sav'
-joblib.dump(model, filename)
-
+# model = RandomForestClassifier(n_estimators=650, random_state=0)
+# model.fit(X_train, y_train)
+# filename = 'finalized_model2.sav'
+# joblib.dump(model, filename)
+model = tf.keras.Sequential()
+model.add(tf.keras.layers.Dense(14, activation='relu'))
+model.add(tf.keras.layers.Dense(9, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='sgd')
+model.fit(np.array(X_train), y_train.to_numpy(), epochs=20)
