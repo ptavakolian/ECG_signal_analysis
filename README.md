@@ -1,5 +1,8 @@
 # ECG_signal_analysis
 
+The goal here is to predict cardiac abnormalities from 12-Lead ECG signal recorded from 6800 patients. First, we extracted features from ECG signals of each subject. Number of cardiac abnormalities (output classes) here is 9. Then, we used random forest and trained the model on the dataset. Recorded the model with joblib command to be used for the challenge testing data.
+
+
 """ First run the randomforest.py/rf2.py/neigh.py which generates the model as finalized_model.sav.
 The input directory for random forest is Training_WFDB which can be downloaded here:
 https://physionetchallenges.github.io/2020/
